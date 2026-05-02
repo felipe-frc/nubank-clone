@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+:root {
+  --purple: #820ad1;
+  --dark-purple: #3e1874;
+  --off-white: #f4f4f4;
+  --white: #ffffff;
+  --gray: #8b8b8b;
+  --gray-light: #f5f5f5;
+  --dark: #0b0014;
+  --gray-text: #4a4a4a;
+  --main-font: "Inter", sans-serif;
+
+  --hero-bg: url("/images/bannerhome-nubank.png");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--main-font);
+  color: var(--dark);
+  background-color: var(--off-white);
+}
+
+button,
+input,
+a {
+  font-family: inherit;
+}
+
+::selection {
+  background-color: var(--purple);
+  color: var(--white);
+}

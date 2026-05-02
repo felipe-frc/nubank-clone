@@ -4,127 +4,968 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nubank Clone</title>
+
+    <link rel="icon" type="image/png" href="/favicon/favicon-nubank.png" />
+
     <link rel="stylesheet" href="/src/styles/main.css" />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <header>
-      <img src="/images/logo-nubank.png" alt="Logo do Nubank" />
+    <header
+      class="fixed left-0 top-0 z-[99] flex h-[70px] w-full items-center justify-between bg-white/90 px-5 shadow-sm backdrop-blur-md md:px-10 lg:px-[72px]"
+    >
+      <a href="#" aria-label="Página inicial do Nubank Clone">
+        <img
+          src="/images/logo-nubank.png"
+          alt="Logo do Nubank Clone"
+          class="h-[64px] w-auto"
+        />
+      </a>
 
-      <nav aria-label="Menu principal">
-        <ul>
-          <li><a href="#">Nubank</a></li>
-          <li><a href="#">Nubank Ultravioleta</a></li>
-          <li><a href="#">Nu Empresa</a></li>
-          <li><a href="#">Segurança</a></li>
-          <li><a href="#">Saiba Mais</a></li>
+      <nav aria-label="Menu principal" class="hidden lg:block">
+        <ul
+          class="flex items-center gap-[34px] text-[15px] font-semibold text-[color:var(--dark)]"
+        >
+          <li>
+            <a
+              href="#produtos"
+              class="transition hover:text-[color:var(--purple)]"
+            >
+              Nubank
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#produtos"
+              class="transition hover:text-[color:var(--purple)]"
+            >
+              Nubank Ultravioleta
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#produtos"
+              class="transition hover:text-[color:var(--purple)]"
+            >
+              Nu Empresas
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#seguranca"
+              class="transition hover:text-[color:var(--purple)]"
+            >
+              Segurança
+            </a>
+          </li>
+
+          <li>
+            <a href="#app" class="transition hover:text-[color:var(--purple)]">
+              Saiba Mais
+            </a>
+          </li>
         </ul>
       </nav>
-      <a href="#">Quero ser Nubank</a>
+
+      <a
+        href="#abrir-conta"
+        class="rounded-full bg-[color:var(--purple)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[color:var(--dark-purple)]"
+      >
+        Quero ser Nubank
+      </a>
     </header>
 
     <main>
-        <section aria-label="Produtos e serviços do Nubank">
-          <a href="#">💳 Conta do Nubank</a>
-          <a href="#">💜 Cartão do Nubank</a>
-          <a href="#">🔒 Seguro Nubank</a>
-          <a href="#">📱 Nu Celulares</a>
-          <a href="#">🛍️ Shopping</a>
-          <a href="#">📈 Investimentos</a>
-          <a href="#">💸 Empréstimo</a>
-        </section>
-        <section aria-label="Solicitar cartão do Nubank">
+      <section
+        aria-label="Apresentação principal"
+        class="relative flex min-h-screen items-end overflow-hidden rounded-b-[42px] bg-[image:var(--hero-bg)] bg-cover bg-center bg-no-repeat px-5 pb-[56px] pt-[120px] md:px-10 lg:px-[72px]"
+      >
+        <div class="absolute inset-0 bg-black/30"></div>
+
+        <div
+          class="relative z-[1] mx-auto grid w-full max-w-[1180px] items-end gap-10 lg:grid-cols-[1fr_380px]"
+        >
+          <div class="max-w-[620px] text-white">
+            <h1
+              class="mb-6 text-[34px] font-semibold leading-[40px] tracking-[-1.2px] md:text-[50px] md:leading-[56px]"
+            >
+              Seja qual for o seu problema, o Nubank tem uma solução
+            </h1>
+          </div>
+
+          <form
+            id="abrir-conta"
+            class="rounded-[28px] bg-white p-6 shadow-2xl md:p-8"
+          >
+            <h2
+              class="mb-6 text-[20px] font-semibold leading-[30px] text-[color:var(--dark)]"
+            >
+              Peça seu Cartão de Crédito e sua Conta do Nubank
+            </h2>
+
+            <div class="mb-5">
+              <label for="cpf" class="sr-only">CPF</label>
+
+              <input
+                type="text"
+                id="cpf"
+                name="cpf"
+                inputmode="numeric"
+                maxlength="14"
+                placeholder="Digite seu CPF"
+                title="Digite um CPF válido no formato 000.000.000-00"
+                class="h-[52px] w-full rounded-xl border border-zinc-300 px-4 text-base font-medium text-[color:var(--dark)] outline-none transition placeholder:text-zinc-400 focus:border-[color:var(--purple)] focus:ring-4 focus:ring-purple-200"
+              />
+            </div>
+
+            <button
+              type="button"
+              class="flex h-[52px] w-full items-center justify-center gap-3 rounded-full bg-[color:var(--purple)] px-6 text-base font-bold text-white transition hover:bg-[color:var(--dark-purple)]"
+            >
+              Continuar
+              <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section
+        id="produtos"
+        aria-label="Produtos Nubank"
+        class="bg-[color:var(--off-white)] px-5 py-[72px] md:px-10 lg:px-[72px]"
+      >
+        <div class="mx-auto max-w-[1180px] text-center">
+          <h2
+            class="mx-auto mb-8 max-w-[760px] text-[32px] font-semibold leading-[38px] tracking-[-1px] text-[color:var(--dark)] md:text-[46px] md:leading-[52px]"
+          >
+            Para cada momento, um Nubank diferente
+          </h2>
+
+          <p
+            id="carousel-subtitle"
+            class="mx-auto mb-8 max-w-[520px] text-[20px] font-medium leading-[26px] text-[color:var(--dark)] transition-all duration-500 md:text-[24px] md:leading-[30px]"
+          >
+            Quero gerenciar meu negócio com facilidade
+          </p>
+
+          <div
+            id="cards-carousel"
+            class="relative mx-auto h-[430px] w-full max-w-[860px] overflow-visible md:h-[470px]"
+          >
+            <article
+              data-card="ultravioleta"
+              class="absolute left-0 top-[56px] z-[1] hidden h-[370px] w-[285px] overflow-hidden rounded-[28px] shadow-lg transition-all duration-700 md:block"
+            >
+              <img
+                src="/images/cards/nubank-ultravioleta.png"
+                alt="Nubank Ultravioleta"
+                class="h-full w-full object-cover"
+              />
+
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center bg-black/25 px-6 text-center text-white"
+              >
+                <h3 class="mb-[110px] text-[32px] font-black leading-[36px]">
+                  Nubank<br />
+                  Ultravioleta
+                </h3>
+
+                <a
+                  href="#"
+                  class="rounded-full bg-zinc-500/80 px-8 py-4 text-sm font-black text-white transition hover:bg-zinc-700/90"
+                >
+                  Saiba mais
+                </a>
+              </div>
+            </article>
+
+            <article
+              data-card="empresas"
+              class="absolute left-1/2 top-0 z-[3] h-[420px] w-[300px] -translate-x-1/2 overflow-hidden rounded-[28px] shadow-2xl transition-all duration-700 md:h-[470px] md:w-[350px]"
+            >
+              <img
+                src="/images/cards/nubank-empresa.png"
+                alt="Nu Empresas"
+                class="h-full w-full object-cover"
+              />
+
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center bg-black/20 px-6 text-center text-white"
+              >
+                <h3
+                  class="mb-[120px] text-[34px] font-black leading-[38px] md:mb-[140px] md:text-[36px] md:leading-[40px]"
+                >
+                  Nu Empresas
+                </h3>
+
+                <a
+                  href="#"
+                  class="rounded-full bg-zinc-500/80 px-10 py-4 text-sm font-black text-white transition hover:bg-zinc-700/90"
+                >
+                  Saiba mais
+                </a>
+              </div>
+            </article>
+
+            <article
+              data-card="nubank"
+              class="absolute right-0 top-[56px] z-[1] hidden h-[370px] w-[285px] overflow-hidden rounded-[28px] shadow-lg transition-all duration-700 md:block"
+            >
+              <img
+                src="/images/cards/nubank.png"
+                alt="Nubank"
+                class="h-full w-full object-cover"
+              />
+
+              <div
+                class="absolute inset-0 flex flex-col items-center justify-center bg-black/25 px-6 text-center text-white"
+              >
+                <h3 class="mb-[110px] text-[34px] font-black leading-[38px]">
+                  Nubank
+                </h3>
+
+                <a
+                  href="#"
+                  class="rounded-full bg-zinc-500/80 px-8 py-4 text-sm font-black text-white transition hover:bg-zinc-700/90"
+                >
+                  Saiba mais
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="mt-8 flex items-center justify-center gap-3">
+            <div
+              class="flex items-center gap-3 rounded-full bg-zinc-200 px-5 py-3"
+              aria-label="Indicadores do carrossel"
+            >
+              <span
+                data-indicator="0"
+                class="h-2 w-2 rounded-full bg-zinc-300 transition-all duration-300"
+              ></span>
+
+              <span
+                data-indicator="1"
+                class="h-2 w-8 rounded-full bg-black transition-all duration-300"
+              ></span>
+
+              <span
+                data-indicator="2"
+                class="h-2 w-2 rounded-full bg-zinc-300 transition-all duration-300"
+              ></span>
+            </div>
+
+            <button
+              id="carousel-toggle"
+              type="button"
+              aria-label="Pausar animação dos cards"
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-zinc-200 text-black transition hover:bg-zinc-300"
+            >
+              <i class="fa-solid fa-pause text-base" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-label="Cartão Nubank"
+        class="bg-white px-5 py-[64px] md:px-10 lg:px-[72px]"
+      >
+        <div
+          class="mx-auto grid max-w-[1180px] items-center gap-10 lg:grid-cols-2"
+        >
           <div>
-            <div class="chip"></div>
-            <p>•••• •••• •••• 8893</p>
-            <div>
-              <span>Felipe França</span>
-              <strong>Nu</strong>
+            <p
+              class="mb-4 text-sm font-black uppercase tracking-[2px] text-[color:var(--purple)]"
+            >
+              Cartão de crédito
+            </p>
+
+            <h2
+              class="mb-5 text-[30px] font-black leading-[36px] tracking-[-1px] text-[color:var(--dark)] md:text-[42px] md:leading-[48px]"
+            >
+              O melhor cartão para o seu perfil
+            </h2>
+
+            <p
+              class="mb-7 max-w-[500px] text-[17px] leading-[28px] text-[color:var(--gray-text)]"
+            >
+              Sem anuidade, sem tarifas abusivas e com uma experiência digital
+              simples para acompanhar seus gastos.
+            </p>
+
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 font-bold text-[color:var(--purple)] transition hover:text-[color:var(--dark-purple)]"
+            >
+              Conheça o Cartão Nubank
+              <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div
+            class="relative flex min-h-[320px] items-center justify-center rounded-[36px] bg-[color:var(--off-white)] p-8"
+          >
+            <div
+              class="h-[230px] w-[320px] rotate-[-8deg] rounded-[28px] bg-gradient-to-br from-purple-700 to-purple-950 p-7 text-white shadow-2xl md:h-[250px] md:w-[360px]"
+            >
+              <div class="flex h-full flex-col justify-between">
+                <img
+                  src="/images/chip-cartao.png"
+                  alt="Chip do cartão"
+                  class="h-[58px] w-[58px] rounded-[22px] object-cover md:h-[75px] md:w-[70px]"
+                />
+
+                <p class="text-lg font-semibold tracking-[4px] md:text-xl">
+                  •••• •••• •••• 8893
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <span
+                    class="text-[15px] font-bold uppercase leading-none tracking-[1px] md:text-[17px]"
+                  >
+                    Felipe França
+                  </span>
+
+                  <img
+                    src="/images/logo-nubank-branco.png"
+                    alt="Logo branca do Nubank"
+                    class="h-[48px] w-[54px] object-contain md:h-[60px] md:w-[65px]"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-          <div>
-            <h2>O cartão que você controla</h2>
-            <ul>
-              <li>✔️ Zero anuidade</li>
-              <li>✔️ Programa de pontos e cashback</li>
-              <li>✔️ Aceito em milhares de estabelecimentos</li>
-              <li>✔️ Bloqueio e desbloqueio pelo app</li>
-            </ul>
-            <a href="#">Pedir meu cartão</a>
+        </div>
+      </section>
+
+      <section
+        id="app"
+        aria-label="Aplicativo Nubank"
+        class="bg-[color:var(--dark-purple)] px-5 py-[64px] text-white md:px-10 lg:px-[72px]"
+      >
+        <div class="mx-auto max-w-[1180px]">
+          <p
+            class="mb-4 text-sm font-black uppercase tracking-[2px] text-white/80"
+          >
+            Tudo no app
+          </p>
+
+          <h2
+            class="mb-8 max-w-[640px] text-[30px] font-black leading-[36px] tracking-[-1px] md:text-[42px] md:leading-[48px]"
+          >
+            Um app para tudo e tudo no app
+          </h2>
+
+          <div class="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+            <div
+              class="relative mx-auto h-[560px] w-[280px] md:h-[600px] md:w-[300px]"
+            >
+              <div
+                class="absolute inset-x-8 bottom-[-22px] h-[42px] rounded-full bg-black/30 blur-2xl"
+              ></div>
+
+              <div
+                class="relative h-full w-full overflow-hidden rounded-[54px] border-[6px] border-zinc-950 bg-zinc-950 shadow-2xl"
+              >
+                <div
+                  class="absolute left-[-15px] top-[135px] h-[72px] w-[5px] rounded-l-full bg-zinc-900"
+                ></div>
+
+                <div
+                  class="absolute right-[-15px] top-[185px] h-[96px] w-[5px] rounded-r-full bg-zinc-900"
+                ></div>
+
+                <div
+                  class="relative h-full w-full overflow-hidden rounded-[40px] bg-[#f5f5f5]"
+                >
+                  <div
+                    class="absolute left-1/2 top-3 z-20 h-[30px] w-[96px] -translate-x-1/2 rounded-full bg-black"
+                  ></div>
+
+                  <div class="h-full overflow-hidden px-5 pb-6 pt-[58px]">
+                    <div class="mb-7 flex items-center justify-between">
+                      <div
+                        class="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-purple-100"
+                      >
+                        <i
+                          class="fa-regular fa-circle-user text-xl text-[color:var(--purple)]"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+
+                      <div
+                        class="flex items-center gap-4 text-[color:var(--purple)]"
+                      >
+                        <i
+                          class="fa-regular fa-eye text-lg"
+                          aria-hidden="true"
+                        ></i>
+
+                        <i
+                          class="fa-regular fa-circle-question text-lg"
+                          aria-hidden="true"
+                        ></i>
+
+                        <i
+                          class="fa-regular fa-envelope text-lg"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <p class="mb-2 text-[15px] font-bold text-zinc-950">
+                        Conta
+                      </p>
+
+                      <h3
+                        class="text-[20px] font-black tracking-[-0.5px] text-zinc-950"
+                      >
+                        R$ 4.250,00
+                      </h3>
+                    </div>
+
+                    <div class="mb-7 grid grid-cols-3 gap-3">
+                      <a href="#" class="flex flex-col items-center gap-2">
+                        <div
+                          class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-zinc-200 text-[color:var(--purple)]"
+                        >
+                          <i
+                            class="fa-solid fa-qrcode text-lg"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+
+                        <span
+                          class="text-center text-[11px] font-bold leading-[14px] text-zinc-900"
+                        >
+                          Área Pix
+                        </span>
+                      </a>
+
+                      <a href="#" class="flex flex-col items-center gap-2">
+                        <div
+                          class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-zinc-200 text-[color:var(--purple)]"
+                        >
+                          <i
+                            class="fa-solid fa-barcode text-lg"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+
+                        <span
+                          class="text-center text-[11px] font-bold leading-[14px] text-zinc-900"
+                        >
+                          Pagar
+                        </span>
+                      </a>
+
+                      <a href="#" class="flex flex-col items-center gap-2">
+                        <div
+                          class="flex h-[40px] w-[40px] items-center justify-center rounded-full bg-zinc-200 text-[color:var(--purple)]"
+                        >
+                          <i
+                            class="fa-solid fa-money-bill-transfer text-lg"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+
+                        <span
+                          class="text-center text-[11px] font-bold leading-[14px] text-zinc-900"
+                        >
+                          Transferir
+                        </span>
+                      </a>
+                    </div>
+
+                    <div
+                      class="mb-4 flex items-center gap-3 rounded-3xl bg-white px-3 py-3 shadow-sm"
+                    >
+                      <i
+                        class="fa-regular fa-credit-card text-[color:var(--purple)]"
+                        aria-hidden="true"
+                      ></i>
+
+                      <span class="text-[15px] font-bold text-zinc-950">
+                        Meus cartões
+                      </span>
+                    </div>
+
+                    <div class="mb-4 rounded-3xl bg-white p-5 shadow-sm">
+                      <div class="mb-4 flex items-center justify-between">
+                        <p class="text-[15px] font-bold text-zinc-950">
+                          Cartão de crédito
+                        </p>
+
+                        <i
+                          class="fa-solid fa-chevron-right text-xs text-zinc-500"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+
+                      <p class="mb-1 text-xs font-semibold text-zinc-500">
+                        Fatura atual
+                      </p>
+
+                      <h4 class="mb-3 text-[20px] font-black text-zinc-950">
+                        R$ 856,32
+                      </h4>
+
+                      <p class="text-xs leading-[15px] text-zinc-500">
+                        Limite disponível de R$ 2.143,68
+                      </p>
+                    </div>
+
+                    <div class="rounded-3xl bg-white p-5 shadow-sm">
+                      <div class="mb-3 flex items-center justify-between">
+                        <p class="text-sm font-bold text-zinc-950">
+                          Empréstimo
+                        </p>
+
+                        <i
+                          class="fa-solid fa-chevron-right text-xs text-zinc-500"
+                          aria-hidden="true"
+                        ></i>
+                      </div>
+
+                      <p class="text-xs leading-[18px] text-zinc-500">
+                        Valor disponível para simulação.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div
+                    class="absolute bottom-2 left-1/2 h-[5px] w-[110px] -translate-x-1/2 rounded-full bg-black/80"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full">
+              <div class="grid gap-4 md:grid-cols-2">
+                <div
+                  class="rounded-[26px] border border-white/20 bg-white/12 p-5 shadow-lg backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/18"
+                >
+                  <div
+                    class="mb-4 flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white text-[color:var(--purple)]"
+                  >
+                    <i
+                      class="fa-solid fa-piggy-bank text-lg"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+
+                  <p class="text-[15px] font-medium leading-[24px] text-white">
+                    Guarde dinheiro de maneira organizada de acordo com seus
+                    objetivos.
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-[26px] border border-white/20 bg-white/12 p-5 shadow-lg backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/18"
+                >
+                  <div
+                    class="mb-4 flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white text-[color:var(--purple)]"
+                  >
+                    <i
+                      class="fa-solid fa-qrcode text-lg"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+
+                  <p class="text-[15px] font-medium leading-[24px] text-white">
+                    Pague e receba com rapidez e praticidade a hora que quiser e
+                    de onde estiver.
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-[26px] border border-white/20 bg-white/12 p-5 shadow-lg backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/18"
+                >
+                  <div
+                    class="mb-4 flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white text-[color:var(--purple)]"
+                  >
+                    <i
+                      class="fa-solid fa-credit-card text-lg"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+
+                  <p class="text-[15px] font-medium leading-[24px] text-white">
+                    Compre no débito ou no crédito de forma segura e receba
+                    notificações em tempo real no app.
+                  </p>
+                </div>
+
+                <div
+                  class="rounded-[26px] border border-white/20 bg-white/12 p-5 shadow-lg backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/18"
+                >
+                  <div
+                    class="mb-4 flex h-[44px] w-[44px] items-center justify-center rounded-full bg-white text-[color:var(--purple)]"
+                  >
+                    <i
+                      class="fa-solid fa-hand-holding-dollar text-lg"
+                      aria-hidden="true"
+                    ></i>
+                  </div>
+
+                  <p class="text-[15px] font-medium leading-[24px] text-white">
+                    Consiga ajuda financeira para resolver uma emergência ou
+                    realizar um sonho.
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="#"
+                class="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-6 py-4 text-sm font-bold text-[color:var(--purple)] transition hover:bg-[color:var(--purple)] hover:text-[color:var(--off-white)]"
+              >
+                Explorar recursos
+                <i
+                  class="fa-solid fa-arrow-right text-xs"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </div>
           </div>
-        </section>
-        <section aria-label="Abrir conta do Nubank">
-          <h2>Pronto para simplificar sua vida financeira?</h2>
-          <p>Abra sua conta em minutos, sem filas, sem papelada, sem burocracia.</p>
-          <a href="#">Abrir minha conta grátis</a>
-        </section>
+        </div>
+      </section>
+
+      <section
+        id="seguranca"
+        aria-label="Segurança"
+        class="bg-[color:var(--off-white)] px-5 py-[72px] md:px-10 lg:px-[72px]"
+      >
+        <div
+          class="relative mx-auto max-w-[1180px] rounded-[36px] bg-white px-6 pb-[56px] pt-[100px] md:px-10 lg:px-[96px]"
+        >
+          <img
+            src="/images/modelo-seguranca.png"
+            alt="Ilustração de segurança do Nubank"
+            class="absolute left-1/2 top-[-40px] h-[150px] w-[240px] -translate-x-1/2 object-contain [animation:spin_28s_linear_infinite]"
+          />
+
+          <div class="mx-auto max-w-[720px] text-center">
+            <h2
+              class="mb-4 mt-10 text-[30px] font-black leading-[38px] tracking-[-1px] text-[color:var(--dark)] md:text-[44px] md:leading-[50px]"
+            >
+              Segurança é prioridade
+            </h2>
+
+            <p
+              class="mx-auto max-w-[580px] text-[18px] font-semibold leading-[28px] text-[color:var(--dark)] md:text-[21px] md:leading-[30px]"
+            >
+              Estamos aqui para te dar suporte completo e garantir a proteção do
+              seu dinheiro.
+            </p>
+          </div>
+
+          <div
+            class="mx-auto mt-[44px] grid max-w-[840px] gap-5 md:grid-cols-2 lg:grid-cols-4"
+          >
+            <a
+              href="#"
+              class="group flex min-h-[135px] flex-col justify-between rounded-[18px] bg-[color:var(--off-white)] p-5 text-left transition hover:-translate-y-1 hover:shadow-xl"
+              aria-label="Saiba mais sobre Me Roubaram"
+            >
+              <h3
+                class="text-[18px] font-semibold leading-[25px] text-[color:var(--dark-purple)]"
+              >
+                Me Roubaram
+              </h3>
+
+              <span
+                class="ml-auto flex h-[34px] w-[34px] items-center justify-center rounded-full bg-zinc-200 text-[color:var(--dark)] transition group-hover:bg-[color:var(--purple)] group-hover:text-white"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-xs"
+                  aria-hidden="true"
+                ></i>
+              </span>
+            </a>
+
+            <a
+              href="#"
+              class="group flex min-h-[135px] flex-col justify-between rounded-[18px] bg-[color:var(--off-white)] p-5 text-left transition hover:-translate-y-1 hover:shadow-xl"
+              aria-label="Saiba mais sobre Canal de Denúncias"
+            >
+              <h3
+                class="text-[18px] font-semibold leading-[25px] text-[color:var(--dark-purple)]"
+              >
+                Canal de<br />
+                Denúncias
+              </h3>
+
+              <span
+                class="ml-auto flex h-[34px] w-[34px] items-center justify-center rounded-full bg-zinc-200 text-[color:var(--dark)] transition group-hover:bg-[color:var(--purple)] group-hover:text-white"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-xs"
+                  aria-hidden="true"
+                ></i>
+              </span>
+            </a>
+
+            <a
+              href="#"
+              class="group flex min-h-[135px] flex-col justify-between rounded-[18px] bg-[color:var(--off-white)] p-5 text-left transition hover:-translate-y-1 hover:shadow-xl"
+              aria-label="Saiba mais sobre Central de Proteção"
+            >
+              <h3
+                class="text-[18px] font-semibold leading-[25px] text-[color:var(--dark-purple)]"
+              >
+                Central de<br />
+                Proteção
+              </h3>
+
+              <span
+                class="ml-auto flex h-[34px] w-[34px] items-center justify-center rounded-full bg-zinc-200 text-[color:var(--dark)] transition group-hover:bg-[color:var(--purple)] group-hover:text-white"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-xs"
+                  aria-hidden="true"
+                ></i>
+              </span>
+            </a>
+
+            <a
+              href="#"
+              class="group flex min-h-[135px] flex-col justify-between rounded-[18px] bg-[color:var(--off-white)] p-5 text-left transition hover:-translate-y-1 hover:shadow-xl"
+              aria-label="Saiba mais sobre Canais de Atendimento"
+            >
+              <h3
+                class="text-[18px] font-semibold leading-[25px] text-[color:var(--dark-purple)]"
+              >
+                Canais de<br />
+                Atendimento
+              </h3>
+
+              <span
+                class="ml-auto flex h-[34px] w-[34px] items-center justify-center rounded-full bg-zinc-200 text-[color:var(--dark)] transition group-hover:bg-[color:var(--purple)] group-hover:text-white"
+              >
+                <i
+                  class="fa-solid fa-chevron-right text-xs"
+                  aria-hidden="true"
+                ></i>
+              </span>
+            </a>
+          </div>
+
+          <div class="mt-[44px] flex justify-center">
+            <a
+              href="#"
+              class="flex h-[52px] gap-3 items-center justify-center rounded-full bg-[color:var(--purple)] px-8 text-sm font-bold text-white transition hover:bg-[color:var(--dark-purple)]"
+            >
+              Conheça nossas soluções
+              <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        aria-label="Chamada final"
+        class="bg-white px-5 py-[64px] md:px-10 lg:px-[72px]"
+      >
+        <div
+          class="mx-auto flex max-w-[1180px] flex-col items-start justify-between gap-8 rounded-[36px] bg-[color:var(--dark)] p-8 text-white md:p-10 lg:flex-row lg:items-center"
+        >
+          <div>
+            <h2
+              class="mb-4 max-w-[660px] text-[30px] font-black leading-[38px] tracking-[-1px] md:text-[40px] md:leading-[48px]"
+            >
+              Pronto para simplificar sua vida financeira?
+            </h2>
+
+            <p class="max-w-[540px] text-[17px] leading-[28px] text-white/75">
+              Abra sua conta em minutos, sem filas, sem papelada e sem
+              burocracia.
+            </p>
+          </div>
+
+          <a
+            href="#abrir-conta"
+            class="flex items-center justify-center gap-3 shrink-0 rounded-full bg-[color:var(--purple)] px-7 py-4 text-sm font-bold text-white transition hover:bg-[color:var(--dark-purple)]"
+          >
+            Abrir minha conta grátis
+            <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
     </main>
 
-    <footer>
-      <div>
-        <div>
+    <footer
+      class="bg-[color:var(--dark)] px-5 py-[56px] text-white md:px-10 lg:px-[72px]"
+    >
+      <div class="mx-auto max-w-[1180px]">
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h2>Produtos</h2>
-            <ul>
-                <li><a href="#">Conta Digital</a></li>
-                <li><a href="#">Cartão de Crédito</a></li>
-                <li><a href="#">Investimentos</a></li>
-                <li><a href="#">Empréstimo</a></li>
+            <h2 class="mb-5 text-lg font-black">Produtos</h2>
+
+            <ul class="space-y-3 text-sm text-white/75">
+              <li>
+                <a href="#" class="transition hover:text-white">
+                  Conta Digital
+                </a>
+              </li>
+              <li>
+                <a href="#" class="transition hover:text-white">
+                  Cartão de Crédito
+                </a>
+              </li>
+              <li>
+                <a href="#" class="transition hover:text-white">
+                  Investimentos
+                </a>
+              </li>
+              <li>
+                <a href="#" class="transition hover:text-white">Empréstimo</a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h2>Explorar</h2>
-            <ul>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Trabalhe Conosco</a></li>
-                <li><a href="#">Imprensa</a></li>
-                <li><a href="#">Comunidade</a></li>
+            <h2 class="mb-5 text-lg font-black">Explorar</h2>
+
+            <ul class="space-y-3 text-sm text-white/75">
+              <li>
+                <a href="#" class="transition hover:text-white">Sobre Nós</a>
+              </li>
+              <li>
+                <a href="#" class="transition hover:text-white">
+                  Trabalhe Conosco
+                </a>
+              </li>
+              <li>
+                <a href="#" class="transition hover:text-white">Imprensa</a>
+              </li>
+              <li>
+                <a href="#" class="transition hover:text-white">Comunidade</a>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h2>Fale Conosco</h2>
-            <p>Ouvidoria</p>
-            <p>Atendimento em dias úteis das 8h às 18h (horário de Brasília)</p>
-            <a href="tel:+5508002223333"> 0800 222 3333</a>
-            <p>Capitais e regiões metropolitanas</p>
-            <a href="tel:+5540028896"> 4002 8896</a>
-            <p>Demais localidades</p>
-            <a href="tel:+5508007778888"> 0800 777 8888</a>
-            <a href="#">Canal de atendimento em libras</a>
+            <h2 class="mb-5 text-lg font-black">Fale Conosco</h2>
+
+            <div class="space-y-4 text-sm leading-[24px] text-white/75">
+              <div>
+                <p class="font-bold text-white">Ouvidoria</p>
+                <p>Atendimento em dias úteis das 8h às 18h.</p>
+                <a
+                  href="tel:+5508002223333"
+                  class="font-bold text-white hover:underline"
+                >
+                  0800 222 3333
+                </a>
+              </div>
+
+              <div>
+                <p class="font-bold text-white">
+                  Capitais e regiões metropolitanas
+                </p>
+                <a
+                  href="tel:+5540028896"
+                  class="font-bold text-white hover:underline"
+                >
+                  4002 8896
+                </a>
+              </div>
+
+              <div>
+                <p class="font-bold text-white">Demais localidades</p>
+                <a
+                  href="tel:+5508007778888"
+                  class="font-bold text-white hover:underline"
+                >
+                  0800 777 8888
+                </a>
+              </div>
+            </div>
           </div>
 
           <div>
-            <h2>Redes Sociais</h2>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-              <i class="fa-brands fa-facebook" aria-hidden="true"></i>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <i class="fa-brands fa-square-instagram" aria-hidden="true"></i>
-            </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X">
-              <i class="fa-brands fa-square-x-twitter" aria-hidden="true"></i>
-            </a>
-          </div>
+            <h2 class="mb-5 text-lg font-black">Redes Sociais</h2>
 
-          <img src="/images/logo-nubank.png" alt="Logo do Nubank" />
+            <div class="flex gap-4">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                class="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white/10 text-xl transition hover:bg-white hover:text-[color:var(--purple)]"
+              >
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+              </a>
+
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                class="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white/10 text-xl transition hover:bg-white hover:text-[color:var(--purple)]"
+              >
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+              </a>
+
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                class="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white/10 text-xl transition hover:bg-white hover:text-[color:var(--purple)]"
+              >
+                <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+              </a>
+
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                class="flex h-[42px] w-[42px] items-center justify-center rounded-full bg-white/10 text-xl transition hover:bg-white hover:text-[color:var(--purple)]"
+              >
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-10 border-t border-white/10 pt-8 text-sm leading-[24px] text-white/60"
+        >
+          <img
+            src="/images/logo-nubank.png"
+            alt="Logo do Nubank Clone"
+            class="mb-5 h-[32px] w-auto brightness-0 invert"
+          />
+
           <p>
-            © 2026 Nu Pagamentos S.A. Reinventando a sua vida financeira desde
-            2013.
+            © 2026 Nubank Clone. Projeto educacional desenvolvido para estudo de
+            HTML, Tailwind CSS, Vite e JavaScript. Este projeto não é oficial e
+            não possui vínculo com o Nubank.
           </p>
         </div>
       </div>
     </footer>
+
+    <script type="module" src="/src/scripts/main.js"></script>
   </body>
 </html>
