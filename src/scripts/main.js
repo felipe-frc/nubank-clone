@@ -171,7 +171,10 @@ function handleAccountFormSubmit(event) {
 
   if (!isValidCPFLength(cpfInput.value)) {
     updateInputState("error");
-    updateFeedback("CPF incompleto. Digite os 11 números para continuar.", "error");
+    updateFeedback(
+      "CPF incompleto. Digite os 11 números para continuar.",
+      "error",
+    );
     cpfInput.focus();
     return;
   }
@@ -187,29 +190,68 @@ function getActiveCarouselProduct() {
   return carouselProducts[carouselState.activeIndex] ?? carouselProducts[1];
 }
 
-function syncCarouselInitialState() {
-  if (!carousel || !carouselSubtitle) {
-    return;
-  }
+function isValidCarouselIndex(index) {
+  return Number.isInteger(index) && index >= 0 && index < carouselProducts.length;
+}
 
-  const activeProduct = getActiveCarouselProduct();
-
-  carousel.dataset.activeIndex = String(carouselState.activeIndex);
-  carouselSubtitle.textContent = activeProduct.subtitle;
-
+function updateCarouselCards() {
   carouselCards.forEach((card) => {
     const cardIndex = Number(card.dataset.carouselIndex);
     const isActive = cardIndex === carouselState.activeIndex;
 
     card.dataset.active = String(isActive);
   });
+}
 
+function updateCarouselIndicators() {
   carouselIndicators.forEach((indicator) => {
     const indicatorIndex = Number(indicator.dataset.indicator);
     const isActive = indicatorIndex === carouselState.activeIndex;
 
     indicator.setAttribute("aria-current", String(isActive));
+
+    indicator.classList.toggle("w-8", isActive);
+    indicator.classList.toggle("bg-black", isActive);
+    indicator.classList.toggle("w-2", !isActive);
+    indicator.classList.toggle("bg-zinc-300", !isActive);
   });
+}
+
+function updateCarouselSubtitle() {
+  if (!carouselSubtitle) {
+    return;
+  }
+
+  const activeProduct = getActiveCarouselProduct();
+  carouselSubtitle.textContent = activeProduct.subtitle;
+}
+
+function setActiveCarouselIndex(index) {
+  if (!carousel || !isValidCarouselIndex(index)) {
+    return;
+  }
+
+  carouselState.activeIndex = index;
+  carousel.dataset.activeIndex = String(index);
+
+  updateCarouselSubtitle();
+  updateCarouselCards();
+  updateCarouselIndicators();
+}
+
+function handleCarouselIndicatorClick(event) {
+  const indicator = event.currentTarget;
+  const indicatorIndex = Number(indicator.dataset.indicator);
+
+  setActiveCarouselIndex(indicatorIndex);
+}
+
+function syncCarouselInitialState() {
+  if (!carousel || !carouselSubtitle) {
+    return;
+  }
+
+  setActiveCarouselIndex(carouselState.activeIndex);
 
   if (carouselToggle) {
     carouselToggle.setAttribute("aria-pressed", String(carouselState.isPaused));
@@ -223,5 +265,9 @@ if (cpfInput) {
 if (accountForm) {
   accountForm.addEventListener("submit", handleAccountFormSubmit);
 }
+
+carouselIndicators.forEach((indicator) => {
+  indicator.addEventListener("click", handleCarouselIndicatorClick);
+});
 
 syncCarouselInitialState();
