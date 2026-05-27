@@ -289,6 +289,7 @@
           <p
             id="carousel-subtitle"
             class="mx-auto mb-8 max-w-[520px] text-[20px] font-medium leading-[26px] text-[color:var(--dark)] transition-all duration-500 md:text-[24px] md:leading-[30px]"
+            aria-live="polite"
           >
             Quero gerenciar meu negócio com facilidade
           </p>
@@ -296,9 +297,15 @@
           <div
             id="cards-carousel"
             class="relative mx-auto h-[430px] w-full max-w-[860px] overflow-visible md:h-[470px]"
+            data-carousel
+            data-active-index="1"
+            aria-label="Carrossel de produtos inspirados no Nubank"
           >
             <article
               data-card="ultravioleta"
+              data-carousel-card
+              data-carousel-index="0"
+              aria-label="Produto Nubank Ultravioleta"
               class="absolute left-0 top-[56px] z-[1] hidden h-[370px] w-[285px] overflow-hidden rounded-[28px] shadow-lg transition-all duration-700 md:block"
             >
               <img
@@ -326,6 +333,9 @@
 
             <article
               data-card="empresas"
+              data-carousel-card
+              data-carousel-index="1"
+              aria-label="Produto Nu Empresas"
               class="absolute left-1/2 top-0 z-[3] h-[420px] w-[300px] -translate-x-1/2 overflow-hidden rounded-[28px] shadow-2xl transition-all duration-700 md:h-[470px] md:w-[350px]"
             >
               <img
@@ -354,6 +364,9 @@
 
             <article
               data-card="nubank"
+              data-carousel-card
+              data-carousel-index="2"
+              aria-label="Produto Nubank"
               class="absolute right-0 top-[56px] z-[1] hidden h-[370px] w-[285px] overflow-hidden rounded-[28px] shadow-lg transition-all duration-700 md:block"
             >
               <img
@@ -382,29 +395,50 @@
           <div class="mt-8 flex items-center justify-center gap-3">
             <div
               class="flex items-center gap-3 rounded-full bg-zinc-200 px-5 py-3"
-              aria-label="Indicadores do carrossel"
+              role="tablist"
+              aria-label="Selecionar produto em destaque no carrossel"
             >
-              <span
+              <button
+                type="button"
                 data-indicator="0"
-                class="h-2 w-2 rounded-full bg-zinc-300 transition-all duration-300"
-              ></span>
+                data-carousel-indicator
+                aria-label="Mostrar Nubank Ultravioleta"
+                aria-current="false"
+                class="h-2 w-2 rounded-full bg-zinc-300 transition-all duration-300 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
+              >
+                <span class="sr-only">Nubank Ultravioleta</span>
+              </button>
 
-              <span
+              <button
+                type="button"
                 data-indicator="1"
-                class="h-2 w-8 rounded-full bg-black transition-all duration-300"
-              ></span>
+                data-carousel-indicator
+                aria-label="Mostrar Nu Empresas"
+                aria-current="true"
+                class="h-2 w-8 rounded-full bg-black transition-all duration-300 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
+              >
+                <span class="sr-only">Nu Empresas</span>
+              </button>
 
-              <span
+              <button
+                type="button"
                 data-indicator="2"
-                class="h-2 w-2 rounded-full bg-zinc-300 transition-all duration-300"
-              ></span>
+                data-carousel-indicator
+                aria-label="Mostrar Nubank"
+                aria-current="false"
+                class="h-2 w-2 rounded-full bg-zinc-300 transition-all duration-300 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
+              >
+                <span class="sr-only">Nubank</span>
+              </button>
             </div>
 
             <button
               id="carousel-toggle"
               type="button"
               aria-label="Pausar animação dos cards"
-              class="flex h-12 w-12 items-center justify-center rounded-full bg-zinc-200 text-black transition hover:bg-zinc-300"
+              aria-pressed="false"
+              data-carousel-toggle
+              class="flex h-12 w-12 items-center justify-center rounded-full bg-zinc-200 text-black transition hover:bg-zinc-300 focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
             >
               <i class="fa-solid fa-pause text-base" aria-hidden="true"></i>
             </button>
