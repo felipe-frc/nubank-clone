@@ -39,6 +39,71 @@ const carouselState = {
   isPaused: false,
 };
 
+const cardPositionClasses = {
+  left: [
+    "left-0",
+    "top-[56px]",
+    "z-[1]",
+    "hidden",
+    "h-[370px]",
+    "w-[285px]",
+    "shadow-lg",
+    "md:block",
+    "opacity-80",
+    "scale-95",
+  ],
+  center: [
+    "left-1/2",
+    "top-0",
+    "z-[3]",
+    "h-[420px]",
+    "w-[300px]",
+    "-translate-x-1/2",
+    "shadow-2xl",
+    "md:h-[470px]",
+    "md:w-[350px]",
+    "opacity-100",
+    "scale-100",
+  ],
+  right: [
+    "right-0",
+    "top-[56px]",
+    "z-[1]",
+    "hidden",
+    "h-[370px]",
+    "w-[285px]",
+    "shadow-lg",
+    "md:block",
+    "opacity-80",
+    "scale-95",
+  ],
+};
+
+const removableCardPositionClasses = [
+  "left-0",
+  "left-1/2",
+  "right-0",
+  "top-0",
+  "top-[56px]",
+  "z-[1]",
+  "z-[3]",
+  "hidden",
+  "h-[370px]",
+  "h-[420px]",
+  "w-[285px]",
+  "w-[300px]",
+  "-translate-x-1/2",
+  "shadow-lg",
+  "shadow-2xl",
+  "md:block",
+  "md:h-[470px]",
+  "md:w-[350px]",
+  "opacity-80",
+  "opacity-100",
+  "scale-95",
+  "scale-100",
+];
+
 function onlyNumbers(value) {
   return value.replace(/\D/g, "").slice(0, CPF_LENGTH);
 }
@@ -194,12 +259,36 @@ function isValidCarouselIndex(index) {
   return Number.isInteger(index) && index >= 0 && index < carouselProducts.length;
 }
 
+function getPreviousCarouselIndex() {
+  return (
+    (carouselState.activeIndex - 1 + carouselProducts.length) %
+    carouselProducts.length
+  );
+}
+
+function getCardVisualPosition(cardIndex) {
+  if (cardIndex === carouselState.activeIndex) {
+    return "center";
+  }
+
+  if (cardIndex === getPreviousCarouselIndex()) {
+    return "left";
+  }
+
+  return "right";
+}
+
 function updateCarouselCards() {
   carouselCards.forEach((card) => {
     const cardIndex = Number(card.dataset.carouselIndex);
     const isActive = cardIndex === carouselState.activeIndex;
+    const visualPosition = getCardVisualPosition(cardIndex);
 
     card.dataset.active = String(isActive);
+    card.dataset.position = visualPosition;
+
+    card.classList.remove(...removableCardPositionClasses);
+    card.classList.add(...cardPositionClasses[visualPosition]);
   });
 }
 
