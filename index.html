@@ -112,6 +112,7 @@
           <form
             id="abrir-conta"
             class="rounded-[28px] bg-white p-6 shadow-2xl md:p-8"
+            novalidate
           >
             <h2
               class="mb-6 text-[20px] font-semibold leading-[30px] text-[color:var(--dark)]"
@@ -130,13 +131,24 @@
                 maxlength="14"
                 placeholder="Digite seu CPF"
                 title="Digite um CPF válido no formato 000.000.000-00"
+                autocomplete="off"
+                aria-describedby="cpf-feedback"
                 class="h-[52px] w-full rounded-xl border border-zinc-300 px-4 text-base font-medium text-[color:var(--dark)] outline-none transition placeholder:text-zinc-400 focus:border-[color:var(--purple)] focus:ring-4 focus:ring-purple-200"
               />
+
+              <p
+                id="cpf-feedback"
+                class="mt-2 min-h-5 text-sm font-semibold text-zinc-500"
+                aria-live="polite"
+              >
+                Informe os 11 números do CPF para iniciar a simulação.
+              </p>
             </div>
 
             <button
-              type="button"
-              class="flex h-[52px] w-full items-center justify-center gap-3 rounded-full bg-[color:var(--purple)] px-6 text-base font-bold text-white transition hover:bg-[color:var(--dark-purple)]"
+              id="cpf-submit"
+              type="submit"
+              class="flex h-[52px] w-full items-center justify-center gap-3 rounded-full bg-[color:var(--purple)] px-6 text-base font-bold text-white transition hover:bg-[color:var(--dark-purple)] focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
             >
               Continuar
               <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
@@ -771,7 +783,7 @@
           <div class="mt-[44px] flex justify-center">
             <a
               href="#"
-              class="flex h-[52px] gap-3 items-center justify-center rounded-full bg-[color:var(--purple)] px-8 text-sm font-bold text-white transition hover:bg-[color:var(--dark-purple)]"
+              class="flex h-[52px] items-center justify-center gap-3 rounded-full bg-[color:var(--purple)] px-8 text-sm font-bold text-white transition hover:bg-[color:var(--dark-purple)]"
             >
               Conheça nossas soluções
               <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
@@ -802,7 +814,7 @@
 
           <a
             href="#abrir-conta"
-            class="flex items-center justify-center gap-3 shrink-0 rounded-full bg-[color:var(--purple)] px-7 py-4 text-sm font-bold text-white transition hover:bg-[color:var(--dark-purple)]"
+            class="flex shrink-0 items-center justify-center gap-3 rounded-full bg-[color:var(--purple)] px-7 py-4 text-sm font-bold text-white transition hover:bg-[color:var(--dark-purple)]"
           >
             Abrir minha conta grátis
             <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
