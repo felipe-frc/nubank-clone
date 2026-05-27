@@ -177,30 +177,56 @@
 
           <form
             id="abrir-conta"
-            class="rounded-[28px] bg-white p-6 shadow-2xl md:p-8"
+            class="rounded-[32px] border border-white/70 bg-white/95 p-6 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-md md:p-8"
             novalidate
           >
+            <div
+              class="mb-5 inline-flex items-center gap-2 rounded-full bg-purple-50 px-3 py-2 text-xs font-black uppercase tracking-[1.5px] text-[color:var(--purple)]"
+            >
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+              Simulação segura
+            </div>
+
             <h2
-              class="mb-6 text-[20px] font-semibold leading-[30px] text-[color:var(--dark)]"
+              class="mb-3 text-[22px] font-black leading-[30px] tracking-[-0.5px] text-[color:var(--dark)]"
             >
               Comece sua experiência digital em poucos segundos
             </h2>
 
-            <div class="mb-5">
-              <label for="cpf" class="sr-only">CPF</label>
+            <p
+              class="mb-6 text-[15px] font-medium leading-[24px] text-zinc-500"
+            >
+              Digite um CPF fictício para testar a interação do formulário.
+              Nenhum dado é enviado ou armazenado.
+            </p>
 
-              <input
-                type="text"
-                id="cpf"
-                name="cpf"
-                inputmode="numeric"
-                maxlength="14"
-                placeholder="Digite seu CPF"
-                title="Digite um CPF válido no formato 000.000.000-00"
-                autocomplete="off"
-                aria-describedby="cpf-feedback"
-                class="h-[52px] w-full rounded-xl border border-zinc-300 px-4 text-base font-medium text-[color:var(--dark)] outline-none transition placeholder:text-zinc-400 focus:border-[color:var(--purple)] focus:ring-4 focus:ring-purple-200"
-              />
+            <div class="mb-5">
+              <label
+                for="cpf"
+                class="mb-2 block text-sm font-bold text-[color:var(--dark)]"
+              >
+                CPF
+              </label>
+
+              <div class="relative">
+                <i
+                  class="fa-regular fa-id-card absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400"
+                  aria-hidden="true"
+                ></i>
+
+                <input
+                  type="text"
+                  id="cpf"
+                  name="cpf"
+                  inputmode="numeric"
+                  maxlength="14"
+                  placeholder="000.000.000-00"
+                  title="Digite um CPF válido no formato 000.000.000-00"
+                  autocomplete="off"
+                  aria-describedby="cpf-feedback"
+                  class="h-[54px] w-full rounded-xl border border-zinc-300 px-4 pl-12 text-base font-medium text-[color:var(--dark)] outline-none transition placeholder:text-zinc-400 focus:border-[color:var(--purple)] focus:ring-4 focus:ring-purple-200"
+                />
+              </div>
 
               <p
                 id="cpf-feedback"
@@ -214,11 +240,36 @@
             <button
               id="cpf-submit"
               type="submit"
-              class="flex h-[52px] w-full items-center justify-center gap-3 rounded-full bg-[color:var(--purple)] px-6 text-base font-bold text-white transition hover:bg-[color:var(--dark-purple)] focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
+              class="flex h-[54px] w-full items-center justify-center gap-3 rounded-full bg-[color:var(--purple)] px-6 text-base font-bold text-white shadow-lg shadow-purple-900/20 transition hover:-translate-y-0.5 hover:bg-[color:var(--dark-purple)] focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-purple-300"
             >
               Continuar
               <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
             </button>
+
+            <div
+              class="mt-5 grid gap-3 border-t border-zinc-200 pt-5 text-sm font-semibold text-zinc-600"
+            >
+              <div class="flex items-center gap-3">
+                <span
+                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-50 text-[color:var(--purple)]"
+                >
+                  <i class="fa-solid fa-lock text-xs" aria-hidden="true"></i>
+                </span>
+                Projeto demonstrativo sem coleta de dados reais.
+              </div>
+
+              <div class="flex items-center gap-3">
+                <span
+                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-50 text-[color:var(--purple)]"
+                >
+                  <i
+                    class="fa-solid fa-code-branch text-xs"
+                    aria-hidden="true"
+                  ></i>
+                </span>
+                Validação feita com JavaScript puro.
+              </div>
+            </div>
           </form>
         </div>
       </section>
