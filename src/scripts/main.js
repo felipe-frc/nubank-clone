@@ -2,12 +2,41 @@ const accountForm = document.querySelector("#abrir-conta");
 const cpfInput = document.querySelector("#cpf");
 const cpfFeedback = document.querySelector("#cpf-feedback");
 
+const carousel = document.querySelector("[data-carousel]");
+const carouselSubtitle = document.querySelector("#carousel-subtitle");
+const carouselCards = document.querySelectorAll("[data-carousel-card]");
+const carouselIndicators = document.querySelectorAll("[data-carousel-indicator]");
+const carouselToggle = document.querySelector("[data-carousel-toggle]");
+
 const CPF_LENGTH = 11;
 
 const feedbackStyles = {
   neutral: "mt-2 min-h-5 text-sm font-semibold text-zinc-500",
   error: "mt-2 min-h-5 text-sm font-semibold text-red-600",
   success: "mt-2 min-h-5 text-sm font-semibold text-emerald-600",
+};
+
+const carouselProducts = [
+  {
+    id: "ultravioleta",
+    title: "Nubank Ultravioleta",
+    subtitle: "Quero uma experiência premium com benefícios exclusivos",
+  },
+  {
+    id: "empresas",
+    title: "Nu Empresas",
+    subtitle: "Quero gerenciar meu negócio com facilidade",
+  },
+  {
+    id: "nubank",
+    title: "Nubank",
+    subtitle: "Quero uma conta simples, digital e sem complicação",
+  },
+];
+
+const carouselState = {
+  activeIndex: Number(carousel?.dataset.activeIndex ?? 1),
+  isPaused: false,
 };
 
 function onlyNumbers(value) {
@@ -115,7 +144,10 @@ function handleCPFInput(event) {
 
   if (isValidCPFLength(formattedCPF)) {
     updateInputState("success");
-    updateFeedback("CPF preenchido corretamente. Agora é só continuar.", "success");
+    updateFeedback(
+      "CPF preenchido corretamente. Agora é só continuar.",
+      "success",
+    );
     return;
   }
 
@@ -151,6 +183,39 @@ function handleAccountFormSubmit(event) {
   );
 }
 
+function getActiveCarouselProduct() {
+  return carouselProducts[carouselState.activeIndex] ?? carouselProducts[1];
+}
+
+function syncCarouselInitialState() {
+  if (!carousel || !carouselSubtitle) {
+    return;
+  }
+
+  const activeProduct = getActiveCarouselProduct();
+
+  carousel.dataset.activeIndex = String(carouselState.activeIndex);
+  carouselSubtitle.textContent = activeProduct.subtitle;
+
+  carouselCards.forEach((card) => {
+    const cardIndex = Number(card.dataset.carouselIndex);
+    const isActive = cardIndex === carouselState.activeIndex;
+
+    card.dataset.active = String(isActive);
+  });
+
+  carouselIndicators.forEach((indicator) => {
+    const indicatorIndex = Number(indicator.dataset.indicator);
+    const isActive = indicatorIndex === carouselState.activeIndex;
+
+    indicator.setAttribute("aria-current", String(isActive));
+  });
+
+  if (carouselToggle) {
+    carouselToggle.setAttribute("aria-pressed", String(carouselState.isPaused));
+  }
+}
+
 if (cpfInput) {
   cpfInput.addEventListener("input", handleCPFInput);
 }
@@ -158,3 +223,5 @@ if (cpfInput) {
 if (accountForm) {
   accountForm.addEventListener("submit", handleAccountFormSubmit);
 }
+
+syncCarouselInitialState();
