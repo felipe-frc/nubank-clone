@@ -9,6 +9,7 @@ const carouselIndicators = document.querySelectorAll("[data-carousel-indicator]"
 const carouselToggle = document.querySelector("[data-carousel-toggle]");
 
 const CPF_LENGTH = 11;
+const CAROUSEL_AUTOPLAY_DELAY = 4000;
 
 const feedbackStyles = {
   neutral: "mt-2 min-h-5 text-sm font-semibold text-zinc-500",
@@ -37,6 +38,7 @@ const carouselProducts = [
 const carouselState = {
   activeIndex: Number(carousel?.dataset.activeIndex ?? 1),
   isPaused: false,
+  autoplayId: null,
 };
 
 const cardPositionClasses = {
@@ -259,6 +261,10 @@ function isValidCarouselIndex(index) {
   return Number.isInteger(index) && index >= 0 && index < carouselProducts.length;
 }
 
+function getNextCarouselIndex() {
+  return (carouselState.activeIndex + 1) % carouselProducts.length;
+}
+
 function getPreviousCarouselIndex() {
   return (
     (carouselState.activeIndex - 1 + carouselProducts.length) %
@@ -328,6 +334,22 @@ function setActiveCarouselIndex(index) {
   updateCarouselIndicators();
 }
 
+function goToNextCarouselProduct() {
+  setActiveCarouselIndex(getNextCarouselIndex());
+}
+
+function startCarouselAutoplay() {
+  if (!carousel || carouselState.autoplayId) {
+    return;
+  }
+
+  carouselState.autoplayId = window.setInterval(() => {
+    if (!carouselState.isPaused) {
+      goToNextCarouselProduct();
+    }
+  }, CAROUSEL_AUTOPLAY_DELAY);
+}
+
 function handleCarouselIndicatorClick(event) {
   const indicator = event.currentTarget;
   const indicatorIndex = Number(indicator.dataset.indicator);
@@ -345,6 +367,8 @@ function syncCarouselInitialState() {
   if (carouselToggle) {
     carouselToggle.setAttribute("aria-pressed", String(carouselState.isPaused));
   }
+
+  startCarouselAutoplay();
 }
 
 if (cpfInput) {
