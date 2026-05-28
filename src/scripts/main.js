@@ -321,6 +321,27 @@ function updateCarouselSubtitle() {
   carouselSubtitle.textContent = activeProduct.subtitle;
 }
 
+function updateCarouselToggle() {
+  if (!carouselToggle) {
+    return;
+  }
+
+  const icon = carouselToggle.querySelector("i");
+
+  carouselToggle.setAttribute("aria-pressed", String(carouselState.isPaused));
+
+  if (carouselState.isPaused) {
+    carouselToggle.setAttribute("aria-label", "Continuar animação dos cards");
+    icon?.classList.remove("fa-pause");
+    icon?.classList.add("fa-play");
+    return;
+  }
+
+  carouselToggle.setAttribute("aria-label", "Pausar animação dos cards");
+  icon?.classList.remove("fa-play");
+  icon?.classList.add("fa-pause");
+}
+
 function setActiveCarouselIndex(index) {
   if (!carousel || !isValidCarouselIndex(index)) {
     return;
@@ -350,6 +371,11 @@ function startCarouselAutoplay() {
   }, CAROUSEL_AUTOPLAY_DELAY);
 }
 
+function toggleCarouselAutoplay() {
+  carouselState.isPaused = !carouselState.isPaused;
+  updateCarouselToggle();
+}
+
 function handleCarouselIndicatorClick(event) {
   const indicator = event.currentTarget;
   const indicatorIndex = Number(indicator.dataset.indicator);
@@ -363,11 +389,7 @@ function syncCarouselInitialState() {
   }
 
   setActiveCarouselIndex(carouselState.activeIndex);
-
-  if (carouselToggle) {
-    carouselToggle.setAttribute("aria-pressed", String(carouselState.isPaused));
-  }
-
+  updateCarouselToggle();
   startCarouselAutoplay();
 }
 
@@ -382,5 +404,9 @@ if (accountForm) {
 carouselIndicators.forEach((indicator) => {
   indicator.addEventListener("click", handleCarouselIndicatorClick);
 });
+
+if (carouselToggle) {
+  carouselToggle.addEventListener("click", toggleCarouselAutoplay);
+}
 
 syncCarouselInitialState();
