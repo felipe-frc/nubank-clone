@@ -1,4 +1,4 @@
-![Version](https://img.shields.io/badge/version-1.6.0-blue)
+![Version](https://img.shields.io/badge/version-1.7.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
@@ -11,7 +11,7 @@
 
 Landing page educacional inspirada na interface do Nubank, desenvolvida com **HTML5**, **Tailwind CSS**, **JavaScript** e **Vite**, com foco em layout responsivo, validação de formulário, carrossel interativo, menu mobile acessível, SEO básico, deploy na Vercel e boas práticas de organização front-end.
 
-O projeto evoluiu de uma página estática para uma interface com interações reais em JavaScript, incluindo validação de CPF, carrossel de produtos com autoplay, controle de pause/play e navegação mobile funcional.
+O projeto evoluiu de uma página estática para uma interface com interações reais em JavaScript, incluindo validação de CPF, carrossel de produtos com autoplay, controle de pause/play, navegação mobile funcional e apresentação visual documentada no README.
 
 ---
 
@@ -22,6 +22,34 @@ O projeto evoluiu de uma página estática para uma interface com interações r
 **Repositório:** [github.com/felipe-frc/nubank-clone](https://github.com/felipe-frc/nubank-clone)
 
 O projeto está publicado na Vercel e também pode ser executado localmente seguindo as instruções da seção **Como Executar o Projeto**.
+
+---
+
+## 🖼️ Screenshots
+
+### Home Desktop
+
+![Home Desktop](docs/screenshots/home-desktop.png)
+
+### Página Completa
+
+![Página Completa](docs/screenshots/full-page.png)
+
+### Carrossel de Produtos
+
+![Carrossel de Produtos](docs/screenshots/carousel-desktop.png)
+
+### Menu Mobile
+
+![Menu Mobile](docs/screenshots/mobile-menu.png)
+
+### Seção do Aplicativo
+
+![Seção do Aplicativo](docs/screenshots/app-section.png)
+
+### Seção de Segurança
+
+![Seção de Segurança](docs/screenshots/security-section.png)
 
 ---
 
@@ -58,6 +86,7 @@ Este projeto foi desenvolvido com o objetivo de praticar e demonstrar conhecimen
 - **Footer Completo:** links, contatos, redes sociais e aviso educacional.
 - **SEO e Compartilhamento Social:** metatags de SEO, Open Graph e Twitter Card.
 - **Deploy na Vercel:** projeto publicado e acessível online.
+- **Screenshots no README:** apresentação visual das principais seções do projeto.
 
 ---
 
@@ -75,23 +104,24 @@ Este projeto foi desenvolvido com o objetivo de praticar e demonstrar conhecimen
 - Uso de atributos `aria-label`, `aria-current`, `aria-expanded`, `aria-hidden` e `aria-pressed`;
 - Metadados de SEO e compartilhamento social;
 - Deploy público realizado na Vercel;
+- Screenshots organizados para melhorar a apresentação do repositório;
 - Organização simples e adequada para portfólio.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Tecnologia     | Uso no projeto                                      |
-| -------------- | --------------------------------------------------- |
-| HTML5          | Estrutura semântica da landing page                 |
-| CSS3           | Variáveis globais, tokens visuais e ajustes base    |
-| Tailwind CSS 4 | Estilização utilitária e responsividade             |
-| JavaScript     | Interatividade, formulário, carrossel e menu mobile |
-| Vite           | Ambiente de desenvolvimento e build                 |
-| Font Awesome   | Ícones da interface                                 |
-| Google Fonts   | Fonte Inter                                         |
-| Vercel         | Deploy e hospedagem da aplicação                    |
-| Git/GitHub     | Versionamento, commits e releases                   |
+| Tecnologia | Uso no projeto |
+| --- | --- |
+| HTML5 | Estrutura semântica da landing page |
+| CSS3 | Variáveis globais, tokens visuais e ajustes base |
+| Tailwind CSS 4 | Estilização utilitária e responsividade |
+| JavaScript | Interatividade, formulário, carrossel e menu mobile |
+| Vite | Ambiente de desenvolvimento e build |
+| Font Awesome | Ícones da interface |
+| Google Fonts | Fonte Inter |
+| Vercel | Deploy e hospedagem da aplicação |
+| Git/GitHub | Versionamento, commits e releases |
 
 ---
 
@@ -100,21 +130,30 @@ Este projeto foi desenvolvido com o objetivo de praticar e demonstrar conhecimen
 ```txt
 nubank-clone/
 │
+├── docs/
+│   └── screenshots/
+│       ├── app-section.png
+│       ├── carousel-desktop.png
+│       ├── full-page.png
+│       ├── home-desktop.png
+│       ├── mobile-menu.png
+│       └── security-section.png
+│
 ├── public/
 │   ├── favicon/
 │   │   └── favicon-nubank.png
 │   │
 │   └── images/
+│       ├── cards/
+│       │   ├── nubank-empresa.png
+│       │   ├── nubank-ultravioleta.png
+│       │   └── nubank.png
+│       │
 │       ├── bannerhome-nubank.png
 │       ├── chip-cartao.png
 │       ├── logo-nubank-branco.png
 │       ├── logo-nubank.png
-│       ├── modelo-seguranca.png
-│       │
-│       └── cards/
-│           ├── nubank-empresa.png
-│           ├── nubank-ultravioleta.png
-│           └── nubank.png
+│       └── modelo-seguranca.png
 │
 ├── src/
 │   ├── scripts/
@@ -123,12 +162,13 @@ nubank-clone/
 │   └── styles/
 │       └── main.css
 │
+├── .gitignore
 ├── index.html
-├── package.json
-├── package-lock.json
-├── vite.config.js
 ├── LICENSE
-└── README.md
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js
 ```
 
 ---
@@ -179,6 +219,10 @@ Responsável pelas interações da interface:
 - Menu mobile;
 - Fechamento do menu por link e tecla `Esc`;
 - Controle de acessibilidade via atributos `aria`.
+
+### `docs/screenshots/`
+
+Responsável por armazenar as imagens utilizadas no README para apresentação visual do projeto.
 
 ### `public/`
 
@@ -361,6 +405,7 @@ Como o projeto ainda não possui testes automatizados, recomenda-se validar manu
 - Autoplay do carrossel;
 - Botão de pause/play;
 - Carregamento correto das imagens no deploy;
+- Visualização correta dos screenshots no README;
 - Acesso ao projeto publicado na Vercel;
 - Build de produção com `npm run build`.
 
@@ -413,11 +458,33 @@ As metatags foram adicionadas para melhorar a apresentação do projeto em busca
 
 A aplicação foi publicada na Vercel para facilitar o acesso público ao projeto, fortalecendo sua apresentação como peça de portfólio.
 
+### Screenshots no README
+
+As imagens da interface foram adicionadas para facilitar a avaliação visual do projeto sem exigir que o visitante abra o deploy imediatamente.
+
 ---
 
 ## 📦 Releases
 
-### v1.6.0 — Deploy na Vercel **Latest**
+### v1.7.0 — Screenshots e Apresentação Visual **Latest**
+
+Versão focada na melhoria visual do README, adicionando screenshots das principais seções da landing page.
+
+Principais entregas:
+
+- Criada pasta `docs/screenshots`;
+- Adicionados screenshots da home desktop;
+- Adicionado screenshot da página completa;
+- Adicionado screenshot do carrossel de produtos;
+- Adicionado screenshot do menu mobile;
+- Adicionado screenshot da seção do aplicativo;
+- Adicionado screenshot da seção de segurança;
+- Atualizada a arquitetura do projeto no README;
+- Melhorada a apresentação visual do projeto para portfólio.
+
+---
+
+### v1.6.0 — Deploy na Vercel
 
 Versão focada na publicação do projeto em ambiente online, tornando a landing page acessível publicamente por meio da Vercel.
 
@@ -569,7 +636,6 @@ Principais entregas:
 
 ## 📈 Melhorias Futuras
 
-- Adicionar screenshots atualizados no README;
 - Criar imagem própria de preview social em 1200x630px;
 - Adicionar testes automatizados com Vitest;
 - Adicionar validação real de CPF com algoritmo oficial;
@@ -602,4 +668,4 @@ Este projeto está sob a licença MIT.
 
 **Marcos Felipe França**
 
-[LinkedIn](https://www.linkedin.com/in/marcosfelipefrc) · [GitHub](https://github.com/felipe-frc)
+[LinkedIn](https://www.linkedin.com/in/marcosfelipefrc) · [GitHub](https://github.com/felipe-frc) 
