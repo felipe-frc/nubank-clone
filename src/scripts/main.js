@@ -4,6 +4,7 @@ const cpfFeedback = document.querySelector("#cpf-feedback");
 
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 const mobileMenuToggle = document.querySelector("[data-mobile-menu-toggle]");
+const mobileMenuLinks = document.querySelectorAll("[data-mobile-menu-link]");
 
 const carousel = document.querySelector("[data-carousel]");
 const carouselSubtitle = document.querySelector("#carousel-subtitle");
@@ -298,9 +299,34 @@ function updateMobileMenuState() {
   updateMobileMenuToggleIcon();
 }
 
-function toggleMobileMenu() {
-  mobileMenuState.isOpen = !mobileMenuState.isOpen;
+function openMobileMenu() {
+  mobileMenuState.isOpen = true;
   updateMobileMenuState();
+}
+
+function closeMobileMenu() {
+  mobileMenuState.isOpen = false;
+  updateMobileMenuState();
+}
+
+function toggleMobileMenu() {
+  if (mobileMenuState.isOpen) {
+    closeMobileMenu();
+    return;
+  }
+
+  openMobileMenu();
+}
+
+function handleMobileMenuLinkClick() {
+  closeMobileMenu();
+}
+
+function handleDocumentKeydown(event) {
+  if (event.key === "Escape" && mobileMenuState.isOpen) {
+    closeMobileMenu();
+    mobileMenuToggle?.focus();
+  }
 }
 
 function getActiveCarouselProduct() {
@@ -454,6 +480,12 @@ if (accountForm) {
 if (mobileMenuToggle) {
   mobileMenuToggle.addEventListener("click", toggleMobileMenu);
 }
+
+mobileMenuLinks.forEach((link) => {
+  link.addEventListener("click", handleMobileMenuLinkClick);
+});
+
+document.addEventListener("keydown", handleDocumentKeydown);
 
 carouselIndicators.forEach((indicator) => {
   indicator.addEventListener("click", handleCarouselIndicatorClick);
