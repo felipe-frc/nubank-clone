@@ -1,14 +1,15 @@
-![Version](https://img.shields.io/badge/version-1.4.0-blue)
+![Version](https://img.shields.io/badge/version-1.6.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38B2AC?logo=tailwindcss&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white)
 
 # 💜 Nubank Clone
 
-Landing page educacional inspirada na interface do Nubank, desenvolvida com **HTML5**, **Tailwind CSS**, **JavaScript** e **Vite**, com foco em layout responsivo, validação de formulário, carrossel interativo, menu mobile acessível, SEO básico e boas práticas de organização front-end.
+Landing page educacional inspirada na interface do Nubank, desenvolvida com **HTML5**, **Tailwind CSS**, **JavaScript** e **Vite**, com foco em layout responsivo, validação de formulário, carrossel interativo, menu mobile acessível, SEO básico, deploy na Vercel e boas práticas de organização front-end.
 
 O projeto evoluiu de uma página estática para uma interface com interações reais em JavaScript, incluindo validação de CPF, carrossel de produtos com autoplay, controle de pause/play e navegação mobile funcional.
 
@@ -16,9 +17,11 @@ O projeto evoluiu de uma página estática para uma interface com interações r
 
 ## 🌐 Acesse o Projeto
 
+**Deploy:** [nubank-clone-ten.vercel.app](https://nubank-clone-ten.vercel.app/)
+
 **Repositório:** [github.com/felipe-frc/nubank-clone](https://github.com/felipe-frc/nubank-clone)
 
-Atualmente, este projeto é executado localmente. Para visualizá-lo, siga as instruções da seção **Como Executar o Projeto**.
+O projeto está publicado na Vercel e também pode ser executado localmente seguindo as instruções da seção **Como Executar o Projeto**.
 
 ---
 
@@ -35,6 +38,7 @@ Este projeto foi desenvolvido com o objetivo de praticar e demonstrar conhecimen
 - Criação de carrossel interativo;
 - Implementação de menu mobile acessível;
 - Aplicação de metatags de SEO e compartilhamento social;
+- Deploy de aplicação front-end na Vercel;
 - Organização de arquivos em um projeto front-end com Vite;
 - Documentação técnica para portfólio profissional.
 
@@ -53,6 +57,7 @@ Este projeto foi desenvolvido com o objetivo de praticar e demonstrar conhecimen
 - **Chamada Final:** CTA para simulação de abertura de conta.
 - **Footer Completo:** links, contatos, redes sociais e aviso educacional.
 - **SEO e Compartilhamento Social:** metatags de SEO, Open Graph e Twitter Card.
+- **Deploy na Vercel:** projeto publicado e acessível online.
 
 ---
 
@@ -69,6 +74,7 @@ Este projeto foi desenvolvido com o objetivo de praticar e demonstrar conhecimen
 - Menu mobile com manipulação de classes e acessibilidade;
 - Uso de atributos `aria-label`, `aria-current`, `aria-expanded`, `aria-hidden` e `aria-pressed`;
 - Metadados de SEO e compartilhamento social;
+- Deploy público realizado na Vercel;
 - Organização simples e adequada para portfólio.
 
 ---
@@ -84,6 +90,7 @@ Este projeto foi desenvolvido com o objetivo de praticar e demonstrar conhecimen
 | Vite           | Ambiente de desenvolvimento e build                 |
 | Font Awesome   | Ícones da interface                                 |
 | Google Fonts   | Fonte Inter                                         |
+| Vercel         | Deploy e hospedagem da aplicação                    |
 | Git/GitHub     | Versionamento, commits e releases                   |
 
 ---
@@ -254,6 +261,21 @@ A página possui metadados para melhorar a apresentação do projeto em buscador
 
 ---
 
+## 🚀 Deploy
+
+O projeto está publicado na Vercel:
+
+[nubank-clone-ten.vercel.app](https://nubank-clone-ten.vercel.app/)
+
+O deploy foi realizado a partir do repositório GitHub, utilizando o fluxo padrão para projetos Vite:
+
+- Instalação das dependências com `npm install`;
+- Build de produção com `npm run build`;
+- Publicação da pasta `dist`;
+- Atualização automática a cada novo push na branch principal configurada na Vercel.
+
+---
+
 ## ▶️ Como Executar o Projeto
 
 ### Pré-requisitos
@@ -338,6 +360,8 @@ Como o projeto ainda não possui testes automatizados, recomenda-se validar manu
 - Rotação visual dos cards;
 - Autoplay do carrossel;
 - Botão de pause/play;
+- Carregamento correto das imagens no deploy;
+- Acesso ao projeto publicado na Vercel;
 - Build de produção com `npm run build`.
 
 ---
@@ -385,11 +409,46 @@ Foram adicionados atributos como `aria-label`, `aria-current`, `aria-expanded`, 
 
 As metatags foram adicionadas para melhorar a apresentação do projeto em buscadores e compartilhamentos sociais.
 
+### Deploy na Vercel
+
+A aplicação foi publicada na Vercel para facilitar o acesso público ao projeto, fortalecendo sua apresentação como peça de portfólio.
+
 ---
 
 ## 📦 Releases
 
-### v1.4.0 — SEO, Metatags e Compartilhamento Social **Latest**
+### v1.6.0 — Deploy na Vercel **Latest**
+
+Versão focada na publicação do projeto em ambiente online, tornando a landing page acessível publicamente por meio da Vercel.
+
+Principais entregas:
+
+- Realizado deploy público do projeto na Vercel;
+- Adicionado link de acesso online ao README;
+- Projeto disponível para visualização sem necessidade de execução local;
+- Melhorada a apresentação do repositório para portfólio;
+- Facilitado o acesso de recrutadores, professores e avaliadores ao projeto.
+
+---
+
+### v1.5.0 — Documentação e Licença do Projeto
+
+Versão focada na melhoria da apresentação do projeto no GitHub, com atualização completa da documentação e inclusão da licença MIT.
+
+Principais entregas:
+
+- README refeito com estrutura mais completa e profissional;
+- Adicionada descrição atualizada do projeto;
+- Documentadas as funcionalidades atuais da landing page;
+- Atualizada a estrutura de pastas do projeto;
+- Adicionadas seções de organização da aplicação, decisões técnicas e testes manuais;
+- Adicionada seção de releases com histórico até a versão atual;
+- Adicionadas melhorias futuras planejadas;
+- Adicionada licença MIT ao projeto.
+
+---
+
+### v1.4.0 — SEO, Metatags e Compartilhamento Social
 
 Versão focada na melhoria da apresentação técnica do projeto, adicionando metatags de SEO, compartilhamento social e refinamento dos metadados principais da página.
 
@@ -510,8 +569,6 @@ Principais entregas:
 
 ## 📈 Melhorias Futuras
 
-- Adicionar deploy público na Vercel;
-- Adicionar link do deploy na seção **Acesse o Projeto**;
 - Adicionar screenshots atualizados no README;
 - Criar imagem própria de preview social em 1200x630px;
 - Adicionar testes automatizados com Vitest;
