@@ -25,29 +25,33 @@ O projeto está publicado na Vercel e também pode ser executado localmente segu
 
 ---
 
-## 🖼️ Screenshots
+## 📸 Interface do Projeto
 
-### Home Desktop
+### 🏠 Página Inicial — Hero Section
 
 ![Home Desktop](docs/screenshots/home-desktop.png)
 
-### Página Completa
-
-![Página Completa](docs/screenshots/full-page.png)
-
-### Carrossel de Produtos
-
-![Carrossel de Produtos](docs/screenshots/carousel-desktop.png)
-
-### Menu Mobile
+### 📱 Menu Mobile
 
 ![Menu Mobile](docs/screenshots/mobile-menu.png)
 
-### Seção do Aplicativo
+### 🧾 Página Completa
+
+![Página Completa](docs/screenshots/full-page.png)
+
+### 🎠 Seção de Produtos — Carrossel
+
+![Carrossel de Produtos](docs/screenshots/carousel-desktop.png)
+
+### 💳 Seção do Cartão
+
+![Seção do Cartão](docs/screenshots/card-section.png)
+
+### 📲 Seção do Aplicativo
 
 ![Seção do Aplicativo](docs/screenshots/app-section.png)
 
-### Seção de Segurança
+### 🔒 Seção de Segurança
 
 ![Seção de Segurança](docs/screenshots/security-section.png)
 
@@ -111,17 +115,17 @@ Este projeto foi desenvolvido com o objetivo de praticar e demonstrar conhecimen
 
 ## 🛠️ Tecnologias Utilizadas
 
-| Tecnologia | Uso no projeto |
-| --- | --- |
-| HTML5 | Estrutura semântica da landing page |
-| CSS3 | Variáveis globais, tokens visuais e ajustes base |
-| Tailwind CSS 4 | Estilização utilitária e responsividade |
-| JavaScript | Interatividade, formulário, carrossel e menu mobile |
-| Vite | Ambiente de desenvolvimento e build |
-| Font Awesome | Ícones da interface |
-| Google Fonts | Fonte Inter |
-| Vercel | Deploy e hospedagem da aplicação |
-| Git/GitHub | Versionamento, commits e releases |
+| Tecnologia     | Uso no projeto                                      |
+| -------------- | --------------------------------------------------- |
+| HTML5          | Estrutura semântica da landing page                 |
+| CSS3           | Variáveis globais, tokens visuais e ajustes base    |
+| Tailwind CSS 4 | Estilização utilitária e responsividade             |
+| JavaScript     | Interatividade, formulário, carrossel e menu mobile |
+| Vite           | Ambiente de desenvolvimento e build                 |
+| Font Awesome   | Ícones da interface                                 |
+| Google Fonts   | Fonte Inter                                         |
+| Vercel         | Deploy e hospedagem da aplicação                    |
+| Git/GitHub     | Versionamento, commits e releases                   |
 
 ---
 
@@ -133,6 +137,7 @@ nubank-clone/
 ├── docs/
 │   └── screenshots/
 │       ├── app-section.png
+│       ├── card-section.png
 │       ├── carousel-desktop.png
 │       ├── full-page.png
 │       ├── home-desktop.png
@@ -477,6 +482,7 @@ Principais entregas:
 - Adicionado screenshot da página completa;
 - Adicionado screenshot do carrossel de produtos;
 - Adicionado screenshot do menu mobile;
+- Adicionado screenshot da seção do cartão;
 - Adicionado screenshot da seção do aplicativo;
 - Adicionado screenshot da seção de segurança;
 - Atualizada a arquitetura do projeto no README;
@@ -668,4 +674,4 @@ Este projeto está sob a licença MIT.
 
 **Marcos Felipe França**
 
-[LinkedIn](https://www.linkedin.com/in/marcosfelipefrc) · [GitHub](https://github.com/felipe-frc) 
+[LinkedIn](https://www.linkedin.com/in/marcosfelipefrc) · [GitHub](https://github.com/felipe-frc)
