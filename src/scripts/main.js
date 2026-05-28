@@ -2,6 +2,9 @@ const accountForm = document.querySelector("#abrir-conta");
 const cpfInput = document.querySelector("#cpf");
 const cpfFeedback = document.querySelector("#cpf-feedback");
 
+const mobileMenu = document.querySelector("[data-mobile-menu]");
+const mobileMenuToggle = document.querySelector("[data-mobile-menu-toggle]");
+
 const carousel = document.querySelector("[data-carousel]");
 const carouselSubtitle = document.querySelector("#carousel-subtitle");
 const carouselCards = document.querySelectorAll("[data-carousel-card]");
@@ -39,6 +42,10 @@ const carouselState = {
   activeIndex: Number(carousel?.dataset.activeIndex ?? 1),
   isPaused: false,
   autoplayId: null,
+};
+
+const mobileMenuState = {
+  isOpen: false,
 };
 
 const cardPositionClasses = {
@@ -253,6 +260,49 @@ function handleAccountFormSubmit(event) {
   );
 }
 
+function updateMobileMenuToggleIcon() {
+  if (!mobileMenuToggle) {
+    return;
+  }
+
+  const icon = mobileMenuToggle.querySelector("i");
+
+  if (!icon) {
+    return;
+  }
+
+  if (mobileMenuState.isOpen) {
+    icon.classList.remove("fa-bars");
+    icon.classList.add("fa-xmark");
+    return;
+  }
+
+  icon.classList.remove("fa-xmark");
+  icon.classList.add("fa-bars");
+}
+
+function updateMobileMenuState() {
+  if (!mobileMenu || !mobileMenuToggle) {
+    return;
+  }
+
+  mobileMenu.classList.toggle("hidden", !mobileMenuState.isOpen);
+  mobileMenuToggle.setAttribute("aria-expanded", String(mobileMenuState.isOpen));
+
+  if (mobileMenuState.isOpen) {
+    mobileMenuToggle.setAttribute("aria-label", "Fechar menu de navegação");
+  } else {
+    mobileMenuToggle.setAttribute("aria-label", "Abrir menu de navegação");
+  }
+
+  updateMobileMenuToggleIcon();
+}
+
+function toggleMobileMenu() {
+  mobileMenuState.isOpen = !mobileMenuState.isOpen;
+  updateMobileMenuState();
+}
+
 function getActiveCarouselProduct() {
   return carouselProducts[carouselState.activeIndex] ?? carouselProducts[1];
 }
@@ -401,6 +451,10 @@ if (accountForm) {
   accountForm.addEventListener("submit", handleAccountFormSubmit);
 }
 
+if (mobileMenuToggle) {
+  mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+}
+
 carouselIndicators.forEach((indicator) => {
   indicator.addEventListener("click", handleCarouselIndicatorClick);
 });
@@ -409,4 +463,5 @@ if (carouselToggle) {
   carouselToggle.addEventListener("click", toggleCarouselAutoplay);
 }
 
+updateMobileMenuState();
 syncCarouselInitialState();
