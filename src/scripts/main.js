@@ -261,6 +261,10 @@ function handleAccountFormSubmit(event) {
   );
 }
 
+function isMobileMenuAvailable() {
+  return Boolean(mobileMenu && mobileMenuToggle);
+}
+
 function updateMobileMenuToggleIcon() {
   if (!mobileMenuToggle) {
     return;
@@ -283,11 +287,12 @@ function updateMobileMenuToggleIcon() {
 }
 
 function updateMobileMenuState() {
-  if (!mobileMenu || !mobileMenuToggle) {
+  if (!isMobileMenuAvailable()) {
     return;
   }
 
   mobileMenu.classList.toggle("hidden", !mobileMenuState.isOpen);
+  mobileMenu.setAttribute("aria-hidden", String(!mobileMenuState.isOpen));
   mobileMenuToggle.setAttribute("aria-expanded", String(mobileMenuState.isOpen));
 
   if (mobileMenuState.isOpen) {
@@ -300,13 +305,31 @@ function updateMobileMenuState() {
 }
 
 function openMobileMenu() {
+  if (!isMobileMenuAvailable() || mobileMenuState.isOpen) {
+    return;
+  }
+
   mobileMenuState.isOpen = true;
   updateMobileMenuState();
+
+  const firstLink = mobileMenuLinks[0];
+
+  if (firstLink) {
+    firstLink.focus();
+  }
 }
 
-function closeMobileMenu() {
+function closeMobileMenu({ shouldRestoreFocus = false } = {}) {
+  if (!isMobileMenuAvailable() || !mobileMenuState.isOpen) {
+    return;
+  }
+
   mobileMenuState.isOpen = false;
   updateMobileMenuState();
+
+  if (shouldRestoreFocus) {
+    mobileMenuToggle.focus();
+  }
 }
 
 function toggleMobileMenu() {
@@ -323,9 +346,8 @@ function handleMobileMenuLinkClick() {
 }
 
 function handleDocumentKeydown(event) {
-  if (event.key === "Escape" && mobileMenuState.isOpen) {
-    closeMobileMenu();
-    mobileMenuToggle?.focus();
+  if (event.key === "Escape") {
+    closeMobileMenu({ shouldRestoreFocus: true });
   }
 }
 
